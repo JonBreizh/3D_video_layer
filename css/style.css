@@ -99,8 +99,7 @@ font-weight:normal;
 
     #cube .four {
       -webkit-transform: rotateY(180deg) translateZ(180px);
-
-box-shadow:0px 0px 10px 1px rgba(56,32,19,0.2);
+      box-shadow:0px 0px 10px 1px rgba(56,32,19,0.2);
     }
 
     #cube .five {
