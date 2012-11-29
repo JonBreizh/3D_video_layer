@@ -8,8 +8,8 @@
     movingArea: $('#cube'),
     minHor: 40,
     maxHor: -40,
-    minVer: 40,
-    maxVer: -40,
+    minVer: 55,
+    maxVer: -30,
     curentX: 0,
     curentY: 0,
     xAngle: 0,
@@ -19,6 +19,7 @@
     init: function() {
       threeDTV.stepsCalcul();
       threeDTV.keyMove();
+      threeDTV.factsEffect();
       return true;
     },
     stepsCalcul: function() {
@@ -59,6 +60,16 @@
             threeDTV.xAngle -= 90;
         }
         threeDTV.movingArea.css('-webkit-transform', "rotateX(" + threeDTV.xAngle + "deg) rotateY(" + threeDTV.yAngle + "deg)");
+        return true;
+      });
+      return true;
+    },
+    factsEffect: function() {
+      var facts;
+      facts = $('.fact');
+      facts.mouseover(function() {
+        console.log('lol');
+        $(this).addClass('active');
         return true;
       });
       return true;

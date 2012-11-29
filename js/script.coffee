@@ -7,8 +7,8 @@ threeDTV = {
 	movingArea : $('#cube'),
 	minHor : 40,
 	maxHor : -40,
-	minVer : 40,
-	maxVer : -40,
+	minVer : 55,
+	maxVer : -30,
 	curentX : 0,
 	curentY : 0,
 	xAngle : 0,
@@ -19,6 +19,7 @@ threeDTV = {
 	init : ->
 		threeDTV.stepsCalcul();
 		threeDTV.keyMove();
+		threeDTV.factsEffect();
 		true
 
 	stepsCalcul : ->
@@ -53,6 +54,15 @@ threeDTV = {
         	true
         )
         true
+
+    factsEffect : ->
+    	facts = $('.fact');
+    	facts.mouseover( ->
+    		console.log 'lol'
+    		$(this).addClass('active')
+    		true
+    	)
+    	true
 #fin de l'objet
 }
 threeDTV.init();
