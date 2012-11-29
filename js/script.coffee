@@ -20,6 +20,7 @@ threeDTV = {
 		threeDTV.stepsCalcul();
 		threeDTV.keyMove();
 		threeDTV.factsEffect();
+		threeDTV.windowResize();
 		true
 
 	stepsCalcul : ->
@@ -58,8 +59,40 @@ threeDTV = {
     factsEffect : ->
     	facts = $('.fact');
     	facts.mouseover( ->
-    		console.log 'lol'
     		$(this).addClass('active')
+    		true
+    	)
+    	true
+
+    windowResize : ->
+    	Win = $(window);
+    	Win.resize(->
+    		winHeight = Win.height()
+    		winWidth = Win.width()
+
+    		baseHeight = winHeight/100
+    		baseWidth = winWidth/100
+
+    		#calcul du ratio du cube // base = 1/3 de la largeur
+
+    		cubWidthPx = baseWidth*33.33
+    		cubHeightPercent = cubWidthPx/baseHeight
+
+    		console.log cubHeightPercent
+    		threeDTV.movingArea.css('height',cubHeightPercent+'%')
+
+    		baseCubWidth = cubWidthPx/100
+    		transZ350 = baseCubWidth*63.64
+    		transZ180 = baseCubWidth*32.65
+    		transZ100 = baseCubWidth*18.18
+
+    		$('#cube .one').css('-webkit-transform','rotateX(90deg) translateZ('+transZ180+'px)')
+    		$('#cube .two').css('-webkit-transform','translateZ('+transZ180+'px)')
+    		$('#cube .three').css('-webkit-transform','rotateY(90deg) translateZ('+transZ350+'px)')
+    		$('#cube .four').css('-webkit-transform','rotateY(180deg) translateZ('+transZ180+'px)')
+    		$('#cube .five').css('-webkit-transform','rotateY(-90deg) translateZ('+transZ180+'px)')
+    		$('#cube .six').css('-webkit-transform','rotateX(-90deg) translateZ('+transZ100+'px) rotate(180deg)')
+
     		true
     	)
     	true
